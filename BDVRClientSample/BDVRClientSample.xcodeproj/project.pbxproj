@@ -459,6 +459,11 @@
 				CLASSPREFIX = BDVR;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Baidu;
+				TargetAttributes = {
+					832D56F517F1621E00D3FD82 = {
+						DevelopmentTeam = WHDFBT4442;
+					};
+				};
 			};
 			buildConfigurationList = 832D56F117F1621E00D3FD82 /* Build configuration list for PBXProject "BDVRClientSample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -603,8 +608,8 @@
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Haiyuan Tang (CX9FD89CUQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haiyuan Tang (CX9FD89CUQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BDVRClientSample/BDVRClientSample-Prefix.pch";
 				INFOPLIST_FILE = "BDVRClientSample/BDVRClientSample-Info.plist";
@@ -687,8 +692,8 @@
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Haiyuan Tang (CX9FD89CUQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haiyuan Tang (CX9FD89CUQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BDVRClientSample/BDVRClientSample-Prefix.pch";
 				INFOPLIST_FILE = "BDVRClientSample/BDVRClientSample-Info.plist";
@@ -709,8 +714,8 @@
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Haiyuan Tang (CX9FD89CUQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haiyuan Tang (CX9FD89CUQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BDVRClientSample/BDVRClientSample-Prefix.pch";
 				INFOPLIST_FILE = "BDVRClientSample/BDVRClientSample-Info.plist";
