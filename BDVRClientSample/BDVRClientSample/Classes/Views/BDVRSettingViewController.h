@@ -15,7 +15,7 @@
 // @brief - Sample设置界面的实现类
 @interface BDVRSettingViewController : UITableViewController <UIPickerViewDelegate>
 {
-    BDVRViewController *clientSampleViewController;
+    __unsafe_unretained BDVRViewController *clientSampleViewController;
 }
 
 @property (nonatomic, assign) BDVRViewController *clientSampleViewController;

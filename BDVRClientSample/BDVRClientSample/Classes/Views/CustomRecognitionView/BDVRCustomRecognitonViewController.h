@@ -18,7 +18,7 @@
 @interface BDVRCustomRecognitonViewController : UIViewController<MVoiceRecognitionClientDelegate>
 {
 	UIImageView *_dialog;
-    BDVRViewController *clientSampleViewController;
+    __unsafe_unretained BDVRViewController *clientSampleViewController;
     
     NSTimer *_voiceLevelMeterTimer; // 获取语音音量界别定时器
 }

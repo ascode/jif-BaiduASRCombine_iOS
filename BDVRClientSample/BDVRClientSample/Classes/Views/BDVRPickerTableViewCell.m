@@ -21,7 +21,6 @@
         popoverContent.view = _pickerView;
         _popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
         _popoverController.delegate = self;
-        [popoverContent release];
     }
 }
 
@@ -81,8 +80,6 @@
 
             NSArray *array = [NSArray arrayWithObjects:flexibleSpaceLeft, doneBtn, nil];
             [_inputAccessoryView setItems:array];
-            [doneBtn release];
-            [flexibleSpaceLeft release];
         }
         
         return _inputAccessoryView;
@@ -188,12 +185,5 @@
     [self resignFirstResponder];
 }
 
-- (void)dealloc
-{
-    [_pickerView release];
-    [_popoverController release];
-    [_inputAccessoryView release];
-    [super dealloc];
-}
 
 @end // BDVRPickerTableViewCell

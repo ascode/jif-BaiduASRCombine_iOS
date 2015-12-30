@@ -32,7 +32,7 @@
         resultContinuousShow = YES;
         playStartMusicSwitch = NO;
         playEndMusicSwitch = NO;
-        _recognitionProperty = [[NSNumber numberWithInt: EVoiceRecognitionPropertyInput] retain];
+        _recognitionProperty = [NSNumber numberWithInt: EVoiceRecognitionPropertyInput];
         recognitionLanguage = EVoiceRecognitionLanguageChinese;
         voiceLevelMeter = NO;
         uiHintMusicSwitch = YES;
@@ -40,17 +40,11 @@
         
 		NSString *tmpString = [[BDVoiceRecognitionClient sharedInstance] libVer];
 		_libVersion = [[NSString alloc] initWithString:tmpString];
-        _theme = [[BDTheme lightBlueTheme] retain];
+        _theme = [BDTheme lightBlueTheme];
 	}
 	return self;
 }
 
--(void)dealloc
-{
-	[_libVersion release];
-    [_theme release];
-    [super dealloc];
-}
 
 + (BDVRSConfig *)sharedInstance
 {
@@ -73,7 +67,7 @@
         [tmpString appendString:candidateWord];
     }
     
-    return [tmpString autorelease];
+    return tmpString;
 }
 
 

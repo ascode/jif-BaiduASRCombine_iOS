@@ -31,7 +31,7 @@
 	self = [super initWithStyle:style];
 	if (self)
 	{
-        _propertyDic = [@{ @10060 : @"地图",
+        _propertyDic = @{ @10060 : @"地图",
                            @10001 : @"音乐",
                            @10002 : @"视频",
                            @10003 : @"应用",
@@ -45,7 +45,7 @@
                            @100016 : @"手机设置",
                            @100018 : @"电视指令",
                            @100019 : @"播放器指令",
-                           @100020 : @"收音机"} retain];
+                           @100020 : @"收音机"};
         _themeArray = [[NSMutableArray alloc] init];
 
         if ([BDTheme lightBlueTheme])
@@ -84,7 +84,7 @@
         {
             [_themeArray addObject:[BDTheme defaultFullScreenTheme]];
         }
-        _languageArray = [@[@"普通话", @"粤语", @"English", @"四川话"] retain];
+        _languageArray = @[@"普通话", @"粤语", @"English", @"四川话"];
 		// Custom initialization.
 	}
 	return self;
@@ -104,7 +104,6 @@
 
 	UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"StringFinishSetting", nil) style:UIBarButtonItemStyleDone target:self action:@selector(backAction:)];
 	self.navigationItem.leftBarButtonItem = backBarButtonItem;
-	[backBarButtonItem release];
 }
 
 - (void)backAction:(id)sender
@@ -215,13 +214,13 @@
     {
         if ((indexPath.section == 0 && indexPath.row == 0) || (indexPath.section == 0 && indexPath.row == 2) || (indexPath.section == 2 && indexPath.row == 1))
         {
-            cell = [[[BDVRPickerTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:PickerCellIdentifier] autorelease];
+            cell = [[BDVRPickerTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:PickerCellIdentifier];
             ((BDVRPickerTableViewCell *)cell).pickerView.delegate = self;
             ((BDVRPickerTableViewCell *)cell).pickerView.tag = section * 10 + row;
         }
         else
         {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         }
     } else {
         if ((indexPath.section == 0 && indexPath.row == 0) || (indexPath.section == 0 && indexPath.row == 2) || (indexPath.section == 2 && indexPath.row == 1))
@@ -252,7 +251,6 @@
             NSNumber *key = [BDVRSConfig sharedInstance].recognitionProperty;
             propertyLable.text = [_propertyDic objectForKey:key];
             cell.accessoryView = propertyLable;
-            [propertyLable release];
         }
         else if (row == 1)
         {
@@ -263,7 +261,6 @@
             
             [tmpSwitch addTarget:self action:@selector(setNeedNLU:) forControlEvents:UIControlEventValueChanged];
             cell.accessoryView = tmpSwitch;
-            [tmpSwitch release];
         }
         else if (row == 2)
         {
@@ -277,7 +274,6 @@
             sampleRateLable.backgroundColor = [UIColor clearColor];
             sampleRateLable.text = [_languageArray objectAtIndex:[BDVRSConfig sharedInstance].recognitionLanguage];
             cell.accessoryView = sampleRateLable;
-            [sampleRateLable release];
         }
     }
     else if (section == 1)
@@ -289,7 +285,6 @@
             tmpSwitch.on = [BDVRSConfig sharedInstance].playStartMusicSwitch;
             [tmpSwitch addTarget:self action:@selector(playStartMusicSwitch:) forControlEvents:UIControlEventValueChanged];
             cell.accessoryView = tmpSwitch;
-            [tmpSwitch release];
         }
         else if (row == 1)
         {
@@ -298,7 +293,6 @@
             tmpSwitch.on = [BDVRSConfig sharedInstance].playEndMusicSwitch;
             [tmpSwitch addTarget:self action:@selector(playEndMusicSwitch:) forControlEvents:UIControlEventValueChanged];
             cell.accessoryView = tmpSwitch;
-            [tmpSwitch release];
         }
         else if (row == 2)
         {
@@ -307,7 +301,6 @@
             tmpSwitch.on = [BDVRSConfig sharedInstance].voiceLevelMeter;
             [tmpSwitch addTarget:self action:@selector(voiceLevelMeterSwitch:) forControlEvents:UIControlEventValueChanged];
             cell.accessoryView = tmpSwitch;
-            [tmpSwitch release];
         }
     }
     else if (section == 2)
@@ -319,7 +312,6 @@
             tmpSwitch.on = [BDVRSConfig sharedInstance].resultContinuousShow;
             [tmpSwitch addTarget:self action:@selector(resultContinuousShowSwitch:) forControlEvents:UIControlEventValueChanged];
             cell.accessoryView = tmpSwitch;
-            [tmpSwitch release];
         }
         else if (row == 1)
         {
@@ -333,7 +325,6 @@
             sampleRateLable.backgroundColor = [UIColor clearColor];
             sampleRateLable.text = [BDVRSConfig sharedInstance].theme.name;
             cell.accessoryView = sampleRateLable;
-            [sampleRateLable release];
         }
         else if (row == 2)
         {
@@ -342,7 +333,6 @@
             tmpSwitch.on = [BDVRSConfig sharedInstance].uiHintMusicSwitch;
             [tmpSwitch addTarget:self action:@selector(uiHintMusicSwitch:) forControlEvents:UIControlEventValueChanged];
             cell.accessoryView = tmpSwitch;
-            [tmpSwitch release];
         }
     }
     else
@@ -477,13 +467,6 @@
 	// For example: self.myOutlet = nil;
 }
 
-
-- (void)dealloc
-{
-    [_themeArray release];
-    [_languageArray release];
-    [super dealloc];
-}
 
 
 @end // VRSettingViewController

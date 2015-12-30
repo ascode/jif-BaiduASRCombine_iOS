@@ -13,12 +13,12 @@
 #import "BDVRCustomRecognitonViewController.h"
 #import "BDVRUIPromptTextCustom.h"
 
-#error 请修改为您在百度开发者平台申请的API_KEY和SECRET_KEY
-#define API_KEY @"" // 请修改为您在百度开发者平台申请的API_KEY
-#define SECRET_KEY @"" // 请修改您在百度开发者平台申请的SECRET_KEY
+// MARK: - #error 请修改为您在百度开发者平台申请的API_KEY和SECRET_KEY
+#define API_KEY @"P3GN1OuybsklGM6qOG3vm1UF" // 请修改为您在百度开发者平台申请的API_KEY
+#define SECRET_KEY @"ade4a1416471fd35a6180c1a6be2d41d" // 请修改您在百度开发者平台申请的SECRET_KEY
 
-#error 请修改为您在百度开发者平台申请的APP ID
-#define APPID @"" // 请修改为您在百度开发者平台申请的APP ID
+// MARK: - #error 请修改为您在百度开发者平台申请的APP ID
+#define APPID @"7577673" // 请修改为您在百度开发者平台申请的APP ID
 
 @implementation BDVRViewController
 
@@ -39,12 +39,6 @@
     return NO;
 }
 
-- (void)dealloc
-{
-    [_audioViewController release];
-    [_recognizerViewController release];
-	[super dealloc];
-}
 
 
 #pragma mark - Button Action
@@ -90,8 +84,6 @@
 	BDVRSettingViewController *tmpVRSettingViewController = [[BDVRSettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
 	UINavigationController *tmpNavController = [[UINavigationController alloc] initWithRootViewController:tmpVRSettingViewController];
 	[self presentViewController:tmpNavController animated:YES completion:nil];
-	[tmpVRSettingViewController release];
-	[tmpNavController release];
 }
 
 - (IBAction)sdkUIRecognitionAction
@@ -108,7 +100,6 @@
     
     tmpRecognizerViewController.delegate = self;
     self.recognizerViewController = tmpRecognizerViewController;
-    [tmpRecognizerViewController release];
     
     // 设置识别参数
     BDRecognizerViewParamsObject *paramsObject = [[BDRecognizerViewParamsObject alloc] init];
@@ -172,7 +163,6 @@
                                     @"$artist_CORE" : @"刘德华\n周华健\n"};
     
     [_recognizerViewController startWithParams:paramsObject];
-    [paramsObject release];
 }
 
 - (IBAction)audioDataRecognitionAciton
@@ -259,7 +249,6 @@
 - (IBAction)uploadContactsAction:(UIButton *)sender {
     BDVRDataUploader *contactsUploader = [[BDVRDataUploader alloc] initDataUploader:self];
     self.contactsUploader = contactsUploader;
-    [contactsUploader release];
     [self.contactsUploader setApiKey:API_KEY withSecretKey:SECRET_KEY];
     NSString *jsonString = @"[{\"name\": \"test\",\"frequency\": 1},{\"name\": \"release\",\"frequency\": 2}]";
     [self.contactsUploader uploadContactsData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
@@ -293,7 +282,6 @@
                 }
                 self.resultView.text = nil;
                 [self logOutToManualResut:tmpString];
-                [tmpString release];
             }
             else
             {
@@ -311,7 +299,6 @@
             [tmpString appendFormat:@"%@",[aObj objectAtIndex:0]];
             self.resultView.text = nil;
             [self logOutToManualResut:tmpString];
-            [tmpString release];
             
             break;
         }
@@ -419,7 +406,6 @@
     BDVRCustomRecognitonViewController *tmpAudioViewController = [[BDVRCustomRecognitonViewController alloc] initWithNibName:nil bundle:nil];
     tmpAudioViewController.clientSampleViewController = self;
     self.audioViewController = tmpAudioViewController;
-    [tmpAudioViewController release];
     
     [[UIApplication sharedApplication].keyWindow addSubview:_audioViewController.view];
 
@@ -445,8 +431,6 @@
         
         _resultView.text = [_resultView.text stringByAppendingString:tmpString];
         _resultView.text = [_resultView.text stringByAppendingString:@"\n"];
-        
-        [tmpString release];
     }
     else
     {
